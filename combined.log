@@ -1,0 +1,52 @@
+{"level":"info","message":"Database created and exported"}
+{"level":"info","message":"Database created and exported"}
+{"level":"info","message":"Hello distributed log files!"}
+{"level":"info","message":"Hello again distributed logs"}
+{"level":"info","message":"Database created and exported"}
+{"level":"info","message":"Database created and exported"}
+{"level":"info","message":"Database created and exported"}
+{"level":"info","message":"Database created and exported"}
+{"level":"info","message":"Database created and exported"}
+{"level":"info","message":"Database created and exported"}
+{"level":"info","message":"Database created and exported"}
+{"level":"info","message":"Database created and exported"}
+{"level":"info","message":"Database created and exported"}
+{"level":"info","message":"Database created and exported"}
+{"level":"info","message":"Database created and exported"}
+{"level":"info","message":"Status Code 201 - undefined"}
+{"level":"info","message":"User added to Database"}
+{"level":"info","message":"Database created and exported"}
+{"level":"info","message":"Status Code 201 - Created a new User"}
+{"level":"info","message":"User added to Database"}
+{"level":"info","message":"Database created and exported"}
+{"level":"info","message":"Status Code 201 - Created a new User"}
+{"level":"info","message":"Database created and exported"}
+{"level":"error","message":"Status Code 404 - Endpoint not found"}
+{"level":"info","message":"Status Code 201 - Created a new User"}
+{"level":"error","message":"Status Code 400 - Parameter is not a String!"}
+{"level":"info","message":"Database created and exported"}
+{"level":"error","message":"Status Code 400 - Password is not a String or Missing!"}
+{"level":"info","message":"Status Code 201 - Created a new User"}
+{"level":"error","message":"Status Code 400 - This email 'svenhu@live.nl' is already in use"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"error","message":"Status Code 404 - Endpoint not found"}
+{"level":"error","message":"Status Code 404 - Endpoint not found"}
+{"level":"error","message":"Status Code 404 - Endpoint not found"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: {$userId}"}
+{"level":"info","message":"Database created and exported"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: {$userId}"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: {$userId}"}
+{"level":"info","message":"Database created and exported"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 3"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 3"}
+{"level":"info","message":"Status Code 200 - Updated user with id: 3"}
+{"level":"info","message":"Status Code 200 - Updated user with id: 3"}
+{"level":"info","message":"Status Code 200 - Updated user with id: 3"}
+{"level":"info","message":"Status Code 200 - Deleted user with Id: 3"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 2"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"info","message":"Database created and exported"}
