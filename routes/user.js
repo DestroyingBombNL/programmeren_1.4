@@ -152,7 +152,13 @@ router.put('/:userId', (req, res) => { //UC-205
                 email: req.body.email,
                 password: req.body.password
             }
-            database.users[userId] = updatedUser
+            const users = database.users
+            for (let i = 0; i < users.length; i++) {
+                if (users[i].id === userId) {
+                    database.users[i] = updatedUser
+                    break;
+                }
+            }  
             const message = 'Updated user with id: ' + userId
             res.status(200).json(
                 {
@@ -183,7 +189,7 @@ router.delete('/:userId', (req, res) => { //UC-206
         const message = 'Deleted user with Id: ' + userId
         for (let i = 0; i < users.length; i++) {
             if (users[i].id === userId) {
-                delete database[i]
+                database.users.splice(i, 1)
                 res.status(200).json(
                     {
                         status: 200,

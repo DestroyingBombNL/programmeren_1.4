@@ -50,3 +50,56 @@
 {"level":"info","message":"Status Code 200 - Retrieved user with id: 2"}
 {"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
 {"level":"info","message":"Database created and exported"}
+{"level":"info","message":"Database created and exported"}
+{"level":"info","message":"Status Code 201 - Created a new User"}
+{"level":"error","message":"Status Code 400 - This email 'svenhu@live.nl' is already in use"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"error","message":"Status Code 404 - Endpoint not found"}
+{"level":"info","message":"Status Code 200 - undefined"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 3"}
+{"level":"info","message":"Status Code 200 - Updated user with id: 3"}
+{"level":"info","message":"Status Code 200 - Deleted user with Id: 2"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Database created and exported"}
+{"level":"error","message":"Status Code 400 - users is not defined"}
+{"level":"info","message":"Database created and exported"}
+{"level":"error","message":"Status Code 400 - users is not defined"}
+{"level":"error","message":"Status Code 400 - users is not defined"}
+{"level":"info","message":"Database created and exported"}
+{"level":"error","message":"Status Code 400 - users is not defined"}
+{"level":"error","message":"Status Code 400 - users is not defined"}
+{"level":"info","message":"Database created and exported"}
+{"level":"info","message":"Database created and exported"}
+{"level":"info","message":"Status Code 200 - Updated user with id: 3"}
+{"level":"info","message":"Status Code 200 - Updated user with id: 3"}
+{"level":"info","message":"Status Code 200 - Updated user with id: 3"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Database created and exported"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"error","message":"Status Code 404 - Endpoint not found"}
+{"level":"info","message":"Status Code 200 - Updated user with id: 3"}
+{"level":"info","message":"Database created and exported"}
+{"level":"info","message":"Status Code 200 - Updated user with id: 3"}
+{"level":"info","message":"Database created and exported"}
+{"level":"info","message":"Status Code 200 - Updated user with id: 3"}
+{"level":"info","message":"Status Code 200 - Updated user with id: 3"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Database created and exported"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - Updated user with id: 3"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - Deleted user with Id: 3"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Database created and exported"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - Deleted user with Id: 3"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Database created and exported"}
+{"level":"info","message":"Status Code 200 - Deleted user with Id: 3"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Database created and exported"}
+{"level":"info","message":"Database created and exported"}
