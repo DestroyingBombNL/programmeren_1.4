@@ -1,0 +1,39 @@
+{
+  "name": "code",
+  "version": "1.0.0",
+  "prettier": {
+    "trailingComma": "es5",
+    "tabWidth": 4,
+    "semi": true,
+    "singleQuote": true
+  },
+  "description": "Hopefully Nodemon works",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "mocha test/*/*.test.js --exit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DestroyingBombNL/Programmeren_4.git"
+  },
+  "keywords": [
+    "Help"
+  ],
+  "author": "Sven",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DestroyingBombNL/Programmeren_4/issues"
+  },
+  "homepage": "https://github.com/DestroyingBombNL/Programmeren_4#readme",
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "chai-http": "^4.3.0",
+    "mocha": "^10.2.0",
+    "nodemon": "^2.0.22",
+    "prettier": "^2.8.7"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
