@@ -10,7 +10,7 @@ const logger = winston.createLogger({
 const router = express.Router()
 router.use(bodyParser.json())
 let database = require('../database')
-const Joi = require('joi')
+const Joi = require('joi');
 
 const schema = Joi.object({
     firstName: Joi.string().required(),
@@ -34,33 +34,38 @@ router.post('/', (req, res) => { //UC-201
     logger.http('POST: /api/user');
     try {
         const validatedData = validateFields(req.body);
-        // If the fields are valid, you can use the validated data
+        database.createUser(req.body, function(err, results) {
+            if (err) {
+                res.status(400).json(
+                    {
+                        status: 400,
+                        message: err.sqlMessage,
+                        data: {}
+                    }
+                )
+                logger.error('Status Code 400 - ' + err);
+            } else {
+                res.status(201).json(
+                    {
+                        status: 201,
+                        message: 'Affected rows: ' + results.affectedRows,
+                        data: results
+                    }
+                )
+                logger.info('Status Code 201 - ' + results.affectedRows);
+            }
+        })
         console.log(validatedData);
       } catch (error) {
-        // If validation fails, you can handle the error here
-        console.error(error.message);
+        res.status(400).json(
+            {
+                status: 400,
+                message: error,
+                data: {}
+            }
+        )
+        logger.error('Status Code 400 - ' + error.message);
       }
-    database.createUser(req.body, function(err, results) {
-        if (err) {
-            res.status(400).json(
-                {
-                    status: 400,
-                    message: err.sqlMessage,
-                    data: {}
-                }
-            )
-            logger.error('Status Code 400 - ' + err);
-        } else {
-            res.status(201).json(
-                {
-                    status: 201,
-                    message: 'Affected rows: ' + results.affectedRows,
-                    data: newUserData
-                }
-            )
-            logger.info('Status Code 201 - ' + results);
-        }
-    })
 })
 
 router.get('/', (req, res) => { //UC-202
@@ -285,7 +290,7 @@ router.delete('/:userId', (req, res) => { //UC-206
     try {
         const userId = parseInt(req.params.userId)
         const message = `Deleted user with id: ${userId}`
-        database.updateUser(userId, query, function(err, results) {
+        database.deleteUser(userId, function(err, results) {
             if (err) {
                 res.status(400).json(
                     {
@@ -314,7 +319,7 @@ router.delete('/:userId', (req, res) => { //UC-206
                 data: {}
             }
         )
-        logger.error('Status Code 400 - ' + err);
+        logger.error('Status Code 400 - ' + error.message);
     }
 })
 

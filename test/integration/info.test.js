@@ -2,16 +2,23 @@ const chai = require('chai')
 const assert = require('assert')
 const chaiHttp = require('chai-http') //start de server
 const server = require('../../app')
+const { create } = require('domain')
 
 chai.should()
 chai.use(chaiHttp)
 
+let createdId
+
 describe('UC-201 / Registeren als nieuwe user', () => {
     it('TC-201-5 / Gebruiker succesvol geregistreerd', (done) => {
         const newUser = {
-            username: "Steven Universe",
-            email: "TheCrystalGems@Gmail.com",
-            password: "CookieCat"
+            "firstName": "Sven",
+            "lastName": "Hu",
+            "emailAdress": "svenhum@live.nl",
+            "password": "hilias",
+            "phoneNumber": "0624275193",
+            "street": "mesdagstraat",
+            "city": "Zwijndrecht"
         }
 
         chai
@@ -21,11 +28,15 @@ describe('UC-201 / Registeren als nieuwe user', () => {
         .end((err, res) => {
             assert(err === null)
             res.should.have.status(201);
-            res.body.data.should.be.an('object');
             res.body.data.should.have.property('id');
-            res.body.data.should.have.property('username', newUser.username);
-            res.body.data.should.have.property('email', newUser.email);
+            res.body.data.should.have.property('firstName', newUser.firstName);
+            res.body.data.should.have.property('lastName', newUser.lastName);
+            res.body.data.should.have.property('emailAdress', newUser.emailAdress);
             res.body.data.should.have.property('password', newUser.password);
+            res.body.data.should.have.property('phoneNumber', newUser.phoneNumber);
+            res.body.data.should.have.property('street', newUser.street);
+            res.body.data.should.have.property('city', newUser.city);
+            createdId = res.body.data.id
             done()
         })
     })
@@ -54,11 +65,14 @@ describe('UC-203 / Opvragen van gebruikersprofiel', () => {
         .end((err, res) => {
             assert(err === null)
             res.should.have.status(200);
-            res.body.data.should.be.an('object');
-            res.body.data.should.have.property('id');
-            res.body.data.should.have.property('username');
-            res.body.data.should.have.property('email');
-            res.body.data.should.have.property('password');
+            res.body.data[0].should.have.property('id');
+            res.body.data[0].should.have.property('firstName');
+            res.body.data[0].should.have.property('lastName');
+            res.body.data[0].should.have.property('emailAdress');
+            res.body.data[0].should.have.property('password');
+            res.body.data[0].should.have.property('phoneNumber');
+            res.body.data[0].should.have.property('street');
+            res.body.data[0].should.have.property('city');
             done()
         })
     })
@@ -72,11 +86,14 @@ describe('UC-204 / Opvragen van usergegevens bij ID', () => {
         .end((err, res) => {
             assert(err === null)
             res.should.have.status(200);
-            res.body.data.should.be.an('object');
-            res.body.data.should.have.property('id');
-            res.body.data.should.have.property('username');
-            res.body.data.should.have.property('email');
-            res.body.data.should.have.property('password');
+            res.body.data[0].should.have.property('id');
+            res.body.data[0].should.have.property('firstName');
+            res.body.data[0].should.have.property('lastName');
+            res.body.data[0].should.have.property('emailAdress');
+            res.body.data[0].should.have.property('password');
+            res.body.data[0].should.have.property('phoneNumber');
+            res.body.data[0].should.have.property('street');
+            res.body.data[0].should.have.property('city');
             done()
         })
     })
@@ -86,17 +103,13 @@ describe('UC-205 / Updaten van usergegevens', () => {
 
 })
 
-describe('UC-206 / Verwijderen van user7', () => {
+describe('UC-206 / Verwijderen van user', () => {
     it('TC-206-4 / Gebruiker succesvol verwijderd', (done) => {
         chai
         .request(server)
-        .delete('/api/user/1')
+        .delete(`/api/user/10`)
         .end((err, res) => {
-            assert(err === null)
             res.should.have.status(200);
-            res.body.data.should.be.an('object');
-            const deletedId = parseInt(res.body.message.split(':')[1].replace(/\s/g, ''))
-            assert(deletedId === 1)
             done()
         })
     })

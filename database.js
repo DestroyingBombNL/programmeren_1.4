@@ -28,7 +28,16 @@ function createUser(newUserData, callback) { //UC-201
                     callback(err, null);
                     return;
                 }
-                callback(null, results);
+                const queryForId = `SELECT * FROM User WHERE emailAdress = \'${newUserData.emailAdress}\'`
+                conn.query(queryForId, function(err, results) {
+                    if (err) {
+                        console.log(err.sqlMessage, ' ', err.errno, ' ', err.code, ' ');
+                        callback(err, null);
+                        return;
+                    }
+                    newUserData.id = results
+                    callback(null, newUserData);
+                })
             });
             pool.releaseConnection(conn);
         }

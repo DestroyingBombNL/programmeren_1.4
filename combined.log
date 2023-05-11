@@ -136,3 +136,251 @@
 {"level":"info","message":"Status Code 200 - Retrieved users"}
 {"level":"info","message":"Status Code 200 - Retrieved users"}
 {"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"error","message":"Status Code 400 - Error: Column 'firstName' cannot be null"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":"Status Code 400 - Error: Duplicate entry 'svenhu@live.nl10' for key 'IDX_87877a938268391a71723b303c'"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":"Status Code 400 - Error: Duplicate entry 'svenhu@live.nl10' for key 'IDX_87877a938268391a71723b303c'"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":"Status Code 400 - Error: Duplicate entry 'svenhu@live.nl10' for key 'IDX_87877a938268391a71723b303c'"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":"Status Code 400 - Error: Duplicate entry 'svenhu@live.nl10' for key 'IDX_87877a938268391a71723b303c'"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":"Status Code 400 - Error: Duplicate entry 'svenhu@live.nl10' for key 'IDX_87877a938268391a71723b303c'"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":"Status Code 400 - Error: Duplicate entry 'svenhu@live.nl10' for key 'IDX_87877a938268391a71723b303c'"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":"Status Code 400 - Error: Duplicate entry 'svenhu@live.nl10' for key 'IDX_87877a938268391a71723b303c'"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":"Status Code 400 - Error: Duplicate entry 'svenhu@live.nl10' for key 'IDX_87877a938268391a71723b303c'"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":"Status Code 400 - Error: Duplicate entry 'svenhu@live.nl11' for key 'IDX_87877a938268391a71723b303c'"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"info","message":"Status Code 201 - [object Object]"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"info","message":"Status Code 201 - [object Object]"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":"Status Code 400 - Error: Duplicate entry 'svenhua@live.nl' for key 'IDX_87877a938268391a71723b303c'"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"info","message":"Status Code 201 - [object Object]"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":"Status Code 400 - Error: Duplicate entry 'svenhuass@live.nl' for key 'IDX_87877a938268391a71723b303c'"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":"Status Code 400 - Error: Duplicate entry 'svenhuass@live.nl' for key 'IDX_87877a938268391a71723b303c'"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":"Status Code 400 - query is not defined"}
+{"level":"error","message":"Status Code 400 - Error: Duplicate entry 'svenhuass@live.nl' for key 'IDX_87877a938268391a71723b303c'"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":"Status Code 400 - query is not defined"}
+{"level":"error","message":"Status Code 400 - Error: Duplicate entry 'svenhuass@live.nl' for key 'IDX_87877a938268391a71723b303c'"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":"Status Code 400 - query is not defined"}
+{"level":"error","message":"Status Code 400 - Error: Duplicate entry 'svenhuass@live.nl' for key 'IDX_87877a938268391a71723b303c'"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":"Status Code 400 - query is not defined"}
+{"level":"error","message":"Status Code 400 - Error: Duplicate entry 'svenhuass@live.nl' for key 'IDX_87877a938268391a71723b303c'"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":"TEST 1"}
+{"level":"error","message":"Status Code 400 - query is not defined"}
+{"level":"error","message":"Status Code 400 - Error: Duplicate entry 'svenhuass@live.nl' for key 'IDX_87877a938268391a71723b303c'"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":"TEST 1"}
+{"level":"error","message":"Status Code 400 - Error: Cannot delete or update a parent row: a foreign key constraint fails (`shareameal`.`meal`, CONSTRAINT `FK_e325266e1b4188f981a00677580` FOREIGN KEY (`cookId`) REFERENCES `user` (`id`))"}
+{"level":"info","message":"Status Code 201 - [object Object]"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":"TEST NaN"}
+{"level":"error","message":"Status Code 400 - Error: Unknown column 'NaN' in 'where clause'"}
+{"level":"error","message":"Status Code 400 - Error: Duplicate entry 'svenhue@live.nl' for key 'IDX_87877a938268391a71723b303c'"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":"TEST NaN"}
+{"level":"error","message":"Status Code 400 - Error: Unknown column 'NaN' in 'where clause'"}
+{"level":"error","message":"Status Code 400 - Error: Duplicate entry 'svenhue@live.nl' for key 'IDX_87877a938268391a71723b303c'"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":"TEST NaN"}
+{"level":"error","message":"Status Code 400 - Error: Unknown column 'NaN' in 'where clause'"}
+{"level":"info","message":"Status Code 201 - [object Object]"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":"TEST NaN"}
+{"level":"error","message":"Status Code 400 - Error: Unknown column 'NaN' in 'where clause'"}
+{"level":"error","message":"Status Code 400 - Error: Duplicate entry 'svenhues@live.nl' for key 'IDX_87877a938268391a71723b303c'"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":"TEST NaN"}
+{"level":"error","message":"Status Code 400 - Error: Unknown column 'NaN' in 'where clause'"}
+{"level":"info","message":"Status Code 201 - [object Object]"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":"TEST NaN"}
+{"level":"error","message":"Status Code 400 - Error: Unknown column 'NaN' in 'where clause'"}
+{"level":"error","message":"Status Code 400 - Error: Duplicate entry 'svenhuesa@live.nl' for key 'IDX_87877a938268391a71723b303c'"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":"TEST NaN"}
+{"level":"error","message":"Status Code 400 - Error: Unknown column 'NaN' in 'where clause'"}
+{"level":"info","message":"Status Code 201 - [object Object]"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":"TEST NaN"}
+{"level":"error","message":"Status Code 400 - Error: Unknown column 'NaN' in 'where clause'"}
+{"level":"info","message":"Status Code 201 - [object Object]"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":"TEST NaN"}
+{"level":"error","message":"Status Code 400 - Error: Unknown column 'NaN' in 'where clause'"}
+{"level":"info","message":"Status Code 201 - [object Object]"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":"TEST NaN"}
+{"level":"error","message":"Status Code 400 - Error: Unknown column 'NaN' in 'where clause'"}
+{"level":"error","message":"Status Code 400 - Error: Duplicate entry 'svenhussessa@live.nl' for key 'IDX_87877a938268391a71723b303c'"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":"TEST NaN"}
+{"level":"error","message":"Status Code 400 - Error: Unknown column 'NaN' in 'where clause'"}
+{"level":"info","message":"Status Code 201 - [object Object]"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":"TEST NaN"}
+{"level":"error","message":"Status Code 400 - Error: Unknown column 'NaN' in 'where clause'"}
+{"level":"info","message":"Status Code 201 - [object Object]"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":"TEST 10"}
+{"level":"info","message":"Status Code 200 - Deleted user with id: 10"}
+{"level":"info","message":"Status Code 201 - undefined"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":"TEST 10"}
+{"level":"info","message":"Status Code 200 - Deleted user with id: 10"}
+{"level":"error","message":"Status Code 400 - Error: Duplicate entry 'svenshussesssas@live.nl' for key 'IDX_87877a938268391a71723b303c'"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":"TEST 10"}
+{"level":"info","message":"Status Code 200 - Deleted user with id: 10"}
+{"level":"info","message":"Status Code 201 - undefined"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":"TEST 10"}
+{"level":"info","message":"Status Code 200 - Deleted user with id: 10"}
+{"level":"info","message":"Status Code 201 - undefined"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":"TEST 10"}
+{"level":"info","message":"Status Code 200 - Deleted user with id: 10"}
+{"level":"info","message":"Status Code 201 - undefined"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":"Status Code 400 - Error: Unknown column 'NaN' in 'where clause'"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"error","message":"Status Code 400 - Error: Duplicate entry 'svesnshusssesssssas@live.nl' for key 'IDX_87877a938268391a71723b303c'"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":"Status Code 400 - Error: Unknown column 'NaN' in 'where clause'"}
+{"level":"error","message":"Status Code 400 - Error: Duplicate entry 'svesnshusssesssssas@live.nl' for key 'IDX_87877a938268391a71723b303c'"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":"Status Code 400 - Error: Unknown column 'NaN' in 'where clause'"}
+{"level":"info","message":"Status Code 201 - undefined"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":"Status Code 400 - Error: Unknown column 'NaN' in 'where clause'"}
+{"level":"info","message":"Status Code 201 - undefined"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":"Status Code 400 - Error: Unknown column 'NaN' in 'where clause'"}
+{"level":"info","message":"Status Code 201 - undefined"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":null}
+{"level":"error","message":"Status Code 400 - Error: Unknown column 'NaN' in 'where clause'"}
+{"level":"info","message":"Status Code 201 - undefined"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":10}
+{"level":"info","message":"Status Code 200 - Deleted user with id: 10"}
+{"level":"info","message":"Status Code 201 - undefined"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":10}
+{"level":"info","message":"Status Code 200 - Deleted user with id: 10"}
