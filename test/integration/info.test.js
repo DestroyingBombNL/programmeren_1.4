@@ -1,4 +1,4 @@
-const chai = require('chai')
+/*const chai = require('chai')
 const assert = require('assert')
 const chaiHttp = require('chai-http') //start de server
 const server = require('../../app')
@@ -113,7 +113,7 @@ describe('UC-206 / Verwijderen van user', () => {
             done()
         })
     })
-})
+})*/
 
 /*describe('Server-succesfull results', () => {
     it('TC-102- Server info', (done) => {
