@@ -7,11 +7,10 @@ const pool = mysql.createPool({
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DATABASE,
     port: process.env.DB_PORT,
-    waitForConnections: process.env.DB_WAIT_FOR_CONNECTIONS,
-    connectionLimit: process.env.DB_CONNECTION_LIMIT,
-    maxIdle: process.env.DB_MAX_IDLE,
-    idleTimeout: process.env.DB_IDLE_TIMEOUT,
-    queueLimit: process.env.DB_QUEUE_LIMIT
+    waitForConnections: true,
+    connectionLimit: 10,
+    idleTimeout: 60000,
+    queueLimit: 0
 });
 
 function createUser(newUserData, callback) { //UC-201 

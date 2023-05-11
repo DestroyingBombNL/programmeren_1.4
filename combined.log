@@ -134,3 +134,5 @@
 {"level":"error","message":"Status Code 400 - Error: Duplicate entry 'svenhu@live.nl' for key 'IDX_87877a938268391a71723b303c'"}
 {"level":"error","message":"Status Code 400 - Error: No database selected"}
 {"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
