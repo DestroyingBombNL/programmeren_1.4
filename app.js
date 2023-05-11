@@ -10,6 +10,7 @@ const logger = winston.createLogger({
   ]
 });
 
+/*
 let database = {
   users: [
       {
@@ -41,6 +42,7 @@ let database = {
 
 exports.database = database
 logger.info('Database created and exported');
+*/
 
 const api = require('./routes/api')
 const user = require('./routes/user') //CRUD, C, Register a User, R, Get that User back with the Id && Filter User by Id && Get the details of the User, U, Update the User information, D, Delete the User

@@ -6,7 +6,7 @@ const server = require('../../app')
 chai.should()
 chai.use(chaiHttp)
 
-describe('Server-succesfull results', () => { //suite waar je meerdere testcases kan hebben
+describe('UC-201 / Registeren als nieuwe user'), () => {
     it('TC-201-5 / Gebruiker succesvol geregistreerd', (done) => {
         const newUser = {
             username: "Steven Universe",
@@ -29,7 +29,9 @@ describe('Server-succesfull results', () => { //suite waar je meerdere testcases
             done()
         })
     })
+}
 
+describe('UC-202 / Opvragen van overzicht van users'), () => {
     it('TC-202-1 / Toon alle gebruikers', (done) => {        
         chai
         .request(server)
@@ -42,7 +44,9 @@ describe('Server-succesfull results', () => { //suite waar je meerdere testcases
             done()
         })
     })
+}
 
+describe('UC-203 / Opvragen van gebruikersprofiel'), () => {
     it('TC-203-2 / Gebruiker is ingelogd met geldig token', (done) => {
         chai
         .request(server)
@@ -58,7 +62,9 @@ describe('Server-succesfull results', () => { //suite waar je meerdere testcases
             done()
         })
     })
+}
 
+describe('UC-204 / Opvragen van usergegevens bij ID'), () => {
     it('TC-204-3 / Gebruiker-ID bestaat', (done) => {
         chai
         .request(server)
@@ -74,7 +80,13 @@ describe('Server-succesfull results', () => { //suite waar je meerdere testcases
             done()
         })
     })
+}
 
+describe('UC-205 / Updaten van usergegevens'), () => {
+
+}
+
+describe('UC-206 / Verwijderen van user7'), () => {
     it('TC-206-4 / Gebruiker succesvol verwijderd', (done) => {
         chai
         .request(server)
@@ -88,8 +100,9 @@ describe('Server-succesfull results', () => { //suite waar je meerdere testcases
             done()
         })
     })
+}
 
-    /*
+/*describe('Server-succesfull results', () => {
     it('TC-102- Server info', (done) => {
         chai
         .request(server)
@@ -129,5 +142,9 @@ describe('Server-succesfull results', () => { //suite waar je meerdere testcases
             data.should.be.an('object')
             done()
         })
-    })*/
-})
+    })
+})*/
+
+describe ('Depopulate database'), () => {
+
+}

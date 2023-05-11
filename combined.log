@@ -103,3 +103,32 @@
 {"level":"info","message":"Status Code 200 - Retrieved users"}
 {"level":"info","message":"Database created and exported"}
 {"level":"info","message":"Database created and exported"}
+{"level":"info","message":"Status Code 201 - [object Object]"}
+{"level":"error","message":"Status Code 400 - Error: Duplicate entry 'svenhu@live.nl' for key 'IDX_87877a938268391a71723b303c'"}
+{"level":"error","message":"Status Code 400 - Error: Duplicate entry 'svenhu@live.nl' for key 'IDX_87877a938268391a71723b303c'"}
+{"level":"info","message":"Status Code 201 - [object Object]"}
+{"level":"info","message":"Status Code 201 - [object Object]"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"error","message":"Status Code 404 - Endpoint not found"}
+{"level":"error","message":"Status Code 404 - Endpoint not found"}
+{"level":"info","message":"Status Code 200 - User profile"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
+{"level":"error","message":"Status Code 400 - Error: connect ECONNREFUSED ::1:3306"}
+{"level":"error","message":"Status Code 400 - Error: connect ECONNREFUSED ::1:3306"}
+{"level":"info","message":"Status Code 201 - [object Object]"}
+{"level":"error","message":"Status Code 400 - Error: Duplicate entry 'svenhu@live.nl5' for key 'IDX_87877a938268391a71723b303c'"}
+{"level":"info","message":"Status Code 201 - [object Object]"}
+{"level":"error","message":"Status Code 400 - Error: Column 'lastName' cannot be null"}
+{"level":"error","message":"Status Code 400 - Error: Duplicate entry 'svenhu@live.nl' for key 'IDX_87877a938268391a71723b303c'"}
+{"level":"error","message":"Status Code 400 - Error: Access denied for user ''@'localhost' (using password: NO)"}
+{"level":"error","message":"Status Code 400 - Error: Access denied for user ''@'localhost' (using password: NO)"}
+{"level":"error","message":"Status Code 404 - Endpoint not found"}
+{"level":"error","message":"Status Code 404 - Endpoint not found"}
+{"level":"error","message":"Status Code 400 - Error: connect ECONNREFUSED ::1:3306"}
+{"level":"error","message":"Status Code 400 - Error: connect ECONNREFUSED ::1:3306"}
+{"level":"error","message":"Status Code 400 - Error: connect ECONNREFUSED ::1:3306"}
+{"level":"error","message":"Status Code 400 - Error: Access denied for user 'root'@'localhost' (using password: NO)"}
+{"level":"error","message":"Status Code 400 - Error: Access denied for user 'root'@'localhost' (using password: NO)"}
+{"level":"error","message":"Status Code 400 - Error: Duplicate entry 'svenhu@live.nl' for key 'IDX_87877a938268391a71723b303c'"}
+{"level":"error","message":"Status Code 400 - Error: Duplicate entry 'svenhu@live.nl' for key 'IDX_87877a938268391a71723b303c'"}
