@@ -1,4 +1,4 @@
-const express = require('express')
+/*const express = require('express')
 const bodyParser = require('body-parser')
 const winston = require('winston');
 const logger = winston.createLogger({
@@ -113,7 +113,7 @@ router.get('/', (req, res) => { //UC-202
         }
     });
 })
-
+*/
 /*
 router.get('/api/user', (req, res) => {
     const queryField = Object.entries(req.query);
@@ -138,6 +138,7 @@ router.get('/api/user', (req, res) => {
     }
   });*/
     
+  /*
 router.get('/profile', (req, res) => { //UC-203
     logger.http('GET: /api/user/profile');
     const message = 'User profile'
@@ -324,3 +325,4 @@ router.delete('/:userId', (req, res) => { //UC-206
 })
 
 module.exports = router
+*/
