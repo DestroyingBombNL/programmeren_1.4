@@ -28,7 +28,7 @@ function createUser(newUserData, callback) { //UC-201
                     callback(err, null);
                     return;
                 }
-                const queryForId = `SELECT * FROM User WHERE emailAdress = \'${newUserData.emailAdress}\'`
+                const queryForId = `SELECT * FROM user WHERE emailAdress = \'${newUserData.emailAdress}\'`
                 conn.query(queryForId, function(err, results) {
                     if (err) {
                         console.log(err.sqlMessage, ' ', err.errno, ' ', err.code, ' ');
@@ -54,7 +54,7 @@ function getUsers(filter, callback) { //UC-202
             return;
         }
         if (conn) {
-            const query = `SELECT * FROM User `;
+            const query = `SELECT * FROM user `;
             if (typeof filter === "string") {
                 query += filter
             }
@@ -79,7 +79,7 @@ function getProfile(callback) { //UC-203
             return;
         }
         if (conn) {
-            const query = `SELECT * FROM User WHERE id = 1`;
+            const query = `SELECT * FROM user WHERE id = 1`;
             conn.query(query, [], function(err, results) {
                 if (err) {
                     console.log(err.sqlMessage, ' ', err.errno, ' ', err.code, ' ');
@@ -101,7 +101,7 @@ function getUser(userId, callback) { //UC-204
             return;
         }
         if (conn) {
-            const query = `SELECT * FROM User WHERE id = ?`;
+            const query = `SELECT * FROM user WHERE id = ?`;
             conn.query(query, [userId], function(err, results) {
                 if (err) {
                     console.log(err.sqlMessage, ' ', err.errno, ' ', err.code, ' ');
@@ -123,7 +123,7 @@ function updateUser(userId, columnsQuery, callback) { //UC-205
             return;
         }
         if (conn) {
-            const query = `UPDATE User SET `;
+            const query = `UPDATE user SET `;
             query += columnsQuery
             query += ` WHERE id = ?`
             conn.query(query, [userId], function(err, results) {
@@ -147,7 +147,7 @@ function deleteUser(userId, callback) { //UC-206
             return;
         }
         if (conn) {
-            const query = `DELETE FROM User WHERE id = ?`;
+            const query = `DELETE FROM user WHERE id = ?`;
             conn.query(query, [userId], function(err, results) {
                 if (err) {
                     console.log(err.sqlMessage, ' ', err.errno, ' ', err.code, ' ');
