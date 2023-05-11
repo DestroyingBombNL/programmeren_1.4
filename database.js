@@ -14,7 +14,7 @@ const pool = mysql.createPool({
     queueLimit: process.env.DB_QUEUE_LIMIT
 });
 
-function createUser(newUserData, callback) { //UC-201
+function createUser(newUserData, callback) { //UC-201 
     pool.getConnection(function(err, conn) {
         if (err) {
             console.log('Errors:', err);
