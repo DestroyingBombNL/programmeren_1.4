@@ -6,7 +6,7 @@ const server = require('../../app')
 chai.should()
 chai.use(chaiHttp)
 
-describe('UC-201 / Registeren als nieuwe user'), () => {
+describe('UC-201 / Registeren als nieuwe user', () => {
     it('TC-201-5 / Gebruiker succesvol geregistreerd', (done) => {
         const newUser = {
             username: "Steven Universe",
@@ -29,9 +29,9 @@ describe('UC-201 / Registeren als nieuwe user'), () => {
             done()
         })
     })
-}
+})
 
-describe('UC-202 / Opvragen van overzicht van users'), () => {
+describe('UC-202 / Opvragen van overzicht van users', () => {
     it('TC-202-1 / Toon alle gebruikers', (done) => {        
         chai
         .request(server)
@@ -44,9 +44,9 @@ describe('UC-202 / Opvragen van overzicht van users'), () => {
             done()
         })
     })
-}
+})
 
-describe('UC-203 / Opvragen van gebruikersprofiel'), () => {
+describe('UC-203 / Opvragen van gebruikersprofiel', () => {
     it('TC-203-2 / Gebruiker is ingelogd met geldig token', (done) => {
         chai
         .request(server)
@@ -62,9 +62,9 @@ describe('UC-203 / Opvragen van gebruikersprofiel'), () => {
             done()
         })
     })
-}
+})
 
-describe('UC-204 / Opvragen van usergegevens bij ID'), () => {
+describe('UC-204 / Opvragen van usergegevens bij ID', () => {
     it('TC-204-3 / Gebruiker-ID bestaat', (done) => {
         chai
         .request(server)
@@ -80,13 +80,13 @@ describe('UC-204 / Opvragen van usergegevens bij ID'), () => {
             done()
         })
     })
-}
+})
 
-describe('UC-205 / Updaten van usergegevens'), () => {
+describe('UC-205 / Updaten van usergegevens', () => {
 
-}
+})
 
-describe('UC-206 / Verwijderen van user7'), () => {
+describe('UC-206 / Verwijderen van user7', () => {
     it('TC-206-4 / Gebruiker succesvol verwijderd', (done) => {
         chai
         .request(server)
@@ -100,7 +100,7 @@ describe('UC-206 / Verwijderen van user7'), () => {
             done()
         })
     })
-}
+})
 
 /*describe('Server-succesfull results', () => {
     it('TC-102- Server info', (done) => {
