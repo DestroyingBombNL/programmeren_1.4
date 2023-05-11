@@ -5,7 +5,7 @@ const pool = mysql.createPool({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
-    //database: process.env.DB_DATABASE,
+    database: process.env.DB_DATABASE,
     port: process.env.DB_PORT,
     waitForConnections: process.env.DB_WAIT_FOR_CONNECTIONS,
     connectionLimit: process.env.DB_CONNECTION_LIMIT,
@@ -22,7 +22,6 @@ function createUser(newUserData, callback) { //UC-201
             return;
         }
         if (conn) {
-
             const query = `INSERT INTO user (firstName, lastName, emailAdress, password, phoneNumber, street, city) VALUES (?, ?, ?, ?, ?, ?, ?)`;
             conn.query(query, [newUserData.firstName, newUserData.lastName, newUserData.emailAdress, newUserData.password, newUserData.phoneNumber, newUserData.street, newUserData.city], function(err, results) {
                 if (err) {
