@@ -384,3 +384,26 @@
 {"level":"info","message":"Status Code 200 - Retrieved user with id: 1"}
 {"level":"error","message":10}
 {"level":"info","message":"Status Code 200 - Deleted user with id: 10"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"error","message":"Status Code 400 - Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '@live.nl, password = asdfMovie, phoneNumber = 0624275193, street = mesdagstra...' at line 1"}
+{"level":"error","message":"Status Code 400 - Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '@live.nl, password = asdfMovie, phoneNumber = 0624275193, street = mesdagstra...' at line 1"}
+{"level":"error","message":"Status Code 400 - Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '@live.nl, password = asdfMovie, phoneNumber = 0624275193, street = mesdagstra...' at line 1"}
+{"level":"error","message":"Status Code 400 - Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '@live.nl, password = asdfMovie, phoneNumber = 0624275193, street = mesdagstra...' at line 1"}
+{"level":"error","message":"Status Code 400 - Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '@live.nl, password = asdfMovie, phoneNumber = 0624275193, street = mesdagstra...' at line 1"}
+{"level":"error","message":"Status Code 400 - Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '@live.nl, password = asdfMovie, phoneNumber = 0624275193, street = mesdagstra...' at line 1"}
+{"level":"error","message":"Status Code 400 - Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '@live.nl, password = asdfMovie, phoneNumber = 0624275193, street = mesdagstra...' at line 1"}
+{"level":"error","message":"Status Code 400 - Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '@live.nl, password = asdfMovie, phoneNumber = 0624275193, street = mesdagstra...' at line 1"}
+{"level":"error","message":"Status Code 400 - Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '@live.nl, password = asdfMovie, phoneNumber = 0624275193, street = mesdagstra...' at line 1"}
+{"level":"info","message":"Status Code 200 - Updated user with id: 95"}
+{"level":"info","message":"Status Code 201 - undefined"}
+{"level":"info","message":"Status Code 201 - undefined"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - Retrieved user with id: 100"}
+{"level":"info","message":"Status Code 200 - Deleted user with id: 100"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}
+{"level":"info","message":"Status Code 200 - Retrieved users"}

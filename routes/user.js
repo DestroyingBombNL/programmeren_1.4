@@ -113,30 +113,6 @@ router.get('/', (req, res) => { //UC-202
         }
     });
 })
-
-/*
-router.get('/api/user', (req, res) => {
-    const queryField = Object.entries(req.query);
-  
-    if (queryField.length == 2) {
-      logger.info(This is field1  ${queryField[0][0]} = ${queryField[0][1]});
-      res.send({
-        status: 200,
-        message: 'Gefilterd op 2 parameters',
-        data: {}
-      });
-    } else if (queryField.length == 1) {
-      res.send({
-        status: 200,
-        message: 'Gefilterd op 1 parameter',
-        data: {}
-      });
-    } else {
-      res.send({
-        status: 200
-      });
-    }
-  });*/
     
 router.get('/profile', (req, res) => { //UC-203
     logger.http('GET: /api/user/profile');
@@ -165,6 +141,7 @@ router.get('/profile', (req, res) => { //UC-203
 router.get('/:userId', (req, res) => { //UC-204
     logger.http('GET: /api/user/:userId');
     const userId = req.params.userId
+    const message = `Retrieved user with id: ${userId}`
     try {
         parseInt(userId)
         database.getUser(userId, function(err, results) {
@@ -178,7 +155,6 @@ router.get('/:userId', (req, res) => { //UC-204
                 )
                 logger.error('Status Code 400 - ' + err);
             } else {
-                const message = `Retrieved user with id: ${userId}`
                 res.status(200).json({
                     status: 200,
                     message: message,
@@ -203,51 +179,52 @@ router.put('/:userId', (req, res) => { //UC-205
     logger.http('PUT: /api/user/:userId');
     try {
         const userId = parseInt(req.params.userId)
-        let query;
+        const message = 'Updated user with id: ' + userId
+        let query = "";
         if (typeof req.body.firstName === "string") {
-            query += `firstName = ${req.body.firstName}, `
+            query += `firstName = \'${req.body.firstName}\', `
         } else {
             logger.info('No firstname was defined correctly');
         }
 
         if (typeof req.body.lastName === "string") {
-            query += `lastName = ${req.body.lastName}, `
+            query += `lastName = \'${req.body.lastName}\', `
         } else {
             logger.info('No lastname was defined correctly');
         }
 
         if (typeof req.body.emailAdress === "string") {
-            query += `emailAdress = ${req.body.emailAdress}, `
+            query += `emailAdress = \'${req.body.emailAdress}\', `
         } else {
             logger.info('No emailAdress was defined correctly');
         }
         
         if (typeof req.body.password === "string") {
-            query += `password = ${req.body.password}, `
+            query += `password = \'${req.body.password}\', `
         } else {
             logger.info('No password was defined correctly');
         }
         
         if (typeof req.body.phoneNumber === "string") {
-            query += `phoneNumber = ${req.body.phoneNumber}, `
+            query += `phoneNumber = \'${req.body.phoneNumber}\', `
         } else {
             logger.info('No phonenumber was defined correctly');
         }
         
         if (typeof req.body.street === "string") {
-            query += `street = ${req.body.street}, `
+            query += `street = \'${req.body.street}\', `
         } else {
             logger.info('No street was defined correctly');
         }
         
         if (typeof req.body.city === "string") {
-            query += `city = ${req.body.city}, `
+            query += `city = \'${req.body.city}\', `
         } else {
             logger.info('No city was defined correctly');
         }
 
-        if (typeof query === "string") {
-            query.slice(0, -2)
+        if (query !== "") {
+            query = query.substring(0, query.length - 2)
             database.updateUser(userId, query, function(err, results) {
                 if (err) {
                     res.status(400).json(
@@ -259,7 +236,6 @@ router.put('/:userId', (req, res) => { //UC-205
                     )
                     logger.error('Status Code 400 - ' + err);
                 } else {
-                    const message = 'Updated user with id: ' + userId
                     res.status(200).json(
                         {
                             status: 200,
@@ -305,7 +281,7 @@ router.delete('/:userId', (req, res) => { //UC-206
                     {
                         status: 200,
                         message: message,
-                        data: results
+                        data: {}
                     }
                 )
                 logger.info('Status Code 200 - ' + message);

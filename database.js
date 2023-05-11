@@ -28,14 +28,14 @@ function createUser(newUserData, callback) { //UC-201
                     callback(err, null);
                     return;
                 }
-                const queryForId = `SELECT * FROM user WHERE emailAdress = \'${newUserData.emailAdress}\'`
+                const queryForId = `SELECT id FROM user WHERE emailAdress = \'${newUserData.emailAdress}\'`
                 conn.query(queryForId, function(err, results) {
                     if (err) {
                         console.log(err.sqlMessage, ' ', err.errno, ' ', err.code, ' ');
                         callback(err, null);
                         return;
                     }
-                    newUserData.id = results
+                    newUserData.id = results[0].id
                     callback(null, newUserData);
                 })
             });
@@ -123,7 +123,7 @@ function updateUser(userId, columnsQuery, callback) { //UC-205
             return;
         }
         if (conn) {
-            const query = `UPDATE user SET `;
+            let query = `UPDATE user SET `;
             query += columnsQuery
             query += ` WHERE id = ?`
             conn.query(query, [userId], function(err, results) {
