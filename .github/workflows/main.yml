@@ -8,6 +8,7 @@ on:
 jobs:
   integrationtests:
     runs-on: ubuntu-latest
+    
     env:
       MYSQL_ROOT_PASSWORD: root # default root password to use must be 'root'
       DB_HOST: '127.0.0.1'

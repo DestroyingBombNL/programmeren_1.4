@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
-const port = 3306 || 3000
+require('dotenv').config();
+const port = process.env.PORT;
 
 const winston = require('winston');
 const logger = winston.createLogger({
