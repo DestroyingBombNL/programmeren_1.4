@@ -145,6 +145,6 @@ describe('UC-206 / Verwijderen van user7', () => {
     })
 })*/
 
-describe ('Depopulate database'), () => {
+describe ('Depopulate database', () => {
 
-}
+})
