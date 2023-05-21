@@ -86,7 +86,7 @@ describe('UC-301 / Registeren als nieuwe user', () => {
     })
 
     it('TC-301-3 / Maaltijd succesvol toegevoegd', (done) => {
-        const TC301_3_create = {            
+        const TC301_3_create = {
             "isActive": false,
             "isVega": false,
             "isVegan": false,

@@ -14,10 +14,10 @@ let tokenToDelete;
 describe('UC-201 / Registeren als nieuwe user', () => {
     it('TC-201-1 / Verplicht veld ontbreekt', (done) => {
         const TC201_1_user = {
-            "firstName": "Svensa",
-            "lastName": "Husa",
-            "password": "hisetsa",
-            "phoneNumber": "0624275190",
+            "firstName": "Svensad",
+            "lastName": "Husad",
+            "password": "hisetsad",
+            "phoneNumber": "0624275290",
             "street": "mesdagstraat",
             "city": "Zwijndrecht"
         }
