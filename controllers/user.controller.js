@@ -26,9 +26,9 @@ const createUserSchema = Joi.object({
 const updateUserSchema = Joi.object({
     firstName: Joi.string().optional(),
     lastName: Joi.string().optional(),
-    emailAdress: Joi.string().optional(),
+    emailAdress: Joi.string().pattern(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/).required(),
     password: Joi.string().optional(),
-    phoneNumber: Joi.string().optional(),
+    phoneNumber: Joi.string().pattern(/^\d{10}$/).optional(),
     street: Joi.string().optional(),
     city: Joi.string().optional(),
   });
@@ -214,8 +214,8 @@ module.exports = {
     updateUser(req, res, next) { //UC-205
         logger.http('PUT: /api/user/:userId');
         try {
-            const userId = parseInt(req.params.userId);
-            const message = 'Updated user with id: ' + userId;
+            const userIdToUpdate = parseInt(req.params.userId);
+            const message = 'Updated user with id: ' + userIdToUpdate;
             let query = '';
             validateUpdateUserFields(req.body);
         
@@ -260,28 +260,38 @@ module.exports = {
             } else {
                 logger.info('No city was defined correctly');
             }
-        
-            if (query !== '') {
-                query = query.substring(0, query.length - 2);
-            
-                database.updateUser(userId, query, function(err, results) {
-                    if (err) {
-                        return next({
-                            status: 400,
-                            message: err.sqlMessage || err.message,
-                            data: {}
-                        });
-                    }
-                    res.status(200).json({
-                        status: 200,
-                        message: message,
-                        data: results
+            authenticationController.validateToken(req, res, next, function(err, userId) {
+                if (err) {
+                    return next({
+                        status: err.status, 
+                        message: err.message, 
+                        data: err.data
                     });
-                    logger.info('Status Code 200 - ' + message);
-                });
-            } else {
-                throw new Error('Nothing needs to be updated!');
-            }
+                } else {
+                    req.body.userId = userId;
+                    if (query !== '') {
+                        query = query.substring(0, query.length - 2);
+                        database.updateUser(userIdToUpdate, req.body.userId, query, function(err) {
+                            if (err) {
+                                return next({
+                                    status: err.status,
+                                    message: err.message,
+                                    data: err.data
+                                });
+                            } else {
+                                res.status(200).json({
+                                    status: 200,
+                                    message: message,
+                                    data: {}
+                                });
+                                logger.info('Status Code 200 - ' + message);
+                            }
+                        });
+                    } else {
+                        throw new Error('Nothing needs to be updated!');
+                    }
+                }
+            })
         } catch (error) {
             return next({
                 status: 400,

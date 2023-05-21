@@ -12,7 +12,7 @@ const logger = winston.createLogger({
 
 const authentication = require('./routes/auth.routes')
 const user = require('./routes/user.routes')
-const meal = require('./routes/meal.routes')
+const meal = require('./routes/meal.routes');
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
@@ -36,7 +36,6 @@ app.get('/api/info', (req, res) => { //UC-102
   )
   logger.info('Status Code 200 - ' + res.message);
 })
-
 app.use('/api/login', authentication)
 app.use('/api/user', user)
 app.use('/api/meal', meal)

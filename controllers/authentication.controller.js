@@ -38,7 +38,7 @@ module.exports = {
             if (err) {
                 return next({
                     status: 404,
-                    message: 'User does not exist',
+                    message: 'No user found',
                     data: {},
                 });
             } else {
@@ -72,11 +72,10 @@ module.exports = {
 
     validateToken(req, res, next, callback) {
         const authHeader = req.headers.authorization;
-        console.log(typeof authHeader);
         if (typeof authHeader === 'undefined' || authHeader.length < 150) {
             let err = {
                 status: 401,
-                message: 'Authorization header missing!',
+                message: 'User is not logged in',
                 data: {}
             }
             callback(err, null);

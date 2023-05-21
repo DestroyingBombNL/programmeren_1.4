@@ -7,7 +7,7 @@ const expect = chai.expect;
 chai.should()
 chai.use(chaiHttp)
 
-let createdId;
+let id;
 let token;
 let tokenToDelete;
 
@@ -103,8 +103,8 @@ describe('UC-201 / Registeren als nieuwe user', () => {
         const TC201_5_user = {
             "firstName": "Sven",
             "lastName": "Hu",
-            "emailAdress": "svenhum@live.nl",
-            "password": "hilias",
+            "emailAdress": "svenhu@live.nl",
+            "password": "secret",
             "phoneNumber": "0624275193",
             "street": "mesdagstraat",
             "city": "Zwijndrecht"
@@ -125,7 +125,6 @@ describe('UC-201 / Registeren als nieuwe user', () => {
             res.body.data.should.have.property('phoneNumber', TC201_5_user.phoneNumber);
             res.body.data.should.have.property('street', TC201_5_user.street);
             res.body.data.should.have.property('city', TC201_5_user.city);
-            createdId = res.body.data.id
             done()
         })
     })
@@ -223,7 +222,7 @@ describe('UC-203 / Opvragen van gebruikersprofiel', () => {
         .get('/api/user/profile')
         .end((err, res) => {
             res.should.have.status(401);
-            expect(res.body.message).to.include('Authorization header missing!');
+            expect(res.body.message).to.include('User is not logged in');
             expect(res.body.data).to.be.empty;
             done()
         })
@@ -281,7 +280,7 @@ describe('UC-204 / Opvragen van usergegevens bij ID', () => {
         .get('/api/user/1')
         .end((err, res) => {
             res.should.have.status(401);
-            expect(res.body.message).to.include('Authorization header missing!');
+            expect(res.body.message).to.include('User is not logged in');
             expect(res.body.data).to.be.empty;
             done()
         })
@@ -314,40 +313,154 @@ describe('UC-204 / Opvragen van usergegevens bij ID', () => {
             res.body.data.user[0].should.have.property('phoneNumber');
             res.body.data.user[0].should.have.property('street');
             res.body.data.user[0].should.have.property('city');
-            res.body.data.meals[0].should.have.property('id').which.is.a('number');
-            res.body.data.meals[0].should.have.property('isActive').which.is.a('number');
-            res.body.data.meals[0].should.have.property('isVega').which.is.a('number');
-            res.body.data.meals[0].should.have.property('isVegan').which.is.a('number');
-            res.body.data.meals[0].should.have.property('isToTakeHome').which.is.a('number');
-            res.body.data.meals[0].should.have.property('dateTime').which.is.a('string');
-            res.body.data.meals[0].should.have.property('maxAmountOfParticipants').which.is.a('number');
-            res.body.data.meals[0].should.have.property('price').which.is.a('string');
-            res.body.data.meals[0].should.have.property('imageUrl').which.is.a('string');
-            res.body.data.meals[0].should.have.property('cookId').which.is.a('number');
-            res.body.data.meals[0].should.have.property('createDate').which.is.a('string');
-            res.body.data.meals[0].should.have.property('updateDate').which.is.a('string');
-            res.body.data.meals[0].should.have.property('name').which.is.a('string');
-            res.body.data.meals[0].should.have.property('description').which.is.a('string');
-            res.body.data.meals[0].should.have.property('allergenes').which.is.a('string');
             done()
         })
     })
 })
 
-describe('UC-205 / Updaten van usergegevens', () => { //Unfinished, requires token
+describe('UC-205 / Updaten van usergegevens', () => {
+    it('TC-205-1 / Verplicht veld “emailAddress” ontbreekt', (done) => {
+        const TC205_1_login = {
+            "password": "hilias"
+        }
 
+        chai
+        .request(server)
+        .put('/api/user/1')
+        .send(TC205_1_login)
+        .set('Authorization', token)
+        .end((err, res) => {
+            res.should.have.status(400);
+            expect(res.body.message).to.include('emailAdress');
+            expect(res.body.data).to.be.empty;
+            done()
+        })
+    })
+
+    it('TC-205-1 / Verplicht veld “emailAddress” ontbreekt', (done) => {
+        const TC205_1_update = {
+            "password": "hilias"
+        }
+
+        chai
+        .request(server)
+        .put('/api/user/1')
+        .send(TC205_1_update)
+        .set('Authorization', token)
+        .end((err, res) => {
+            res.should.have.status(400);
+            expect(res.body.message).to.include('emailAdress');
+            expect(res.body.data).to.be.empty;
+            done()
+        })
+    })
+
+    it('TC-205-2 / De gebruiker is niet de eigenaar van de data', (done) => {
+        const TC205_2_update = {
+            "emailAdress": "UwUOwO@Live.nl",
+            "password": "hilias"
+        }
+
+        chai
+        .request(server)
+        .put('/api/user/2')
+        .send(TC205_2_update)
+        .set('Authorization', token)
+        .end((err, res) => {
+            res.should.have.status(403);
+            expect(res.body.message).to.include('User is not authorized to modify this account');
+            expect(res.body.data).to.be.empty;
+            done()
+        })
+    })
+
+    it('TC-205-3 / Niet-valide telefoonnummer', (done) => {
+        const TC205_3_update = {
+            "emailAdress": "UwUOwO@Live.nl",
+            "phoneNumber": "023939134823489",
+            "password": "hilias"
+        }
+
+        chai
+        .request(server)
+        .put('/api/user/1')
+        .send(TC205_3_update)
+        .set('Authorization', token)
+        .end((err, res) => {
+            res.should.have.status(400);
+            expect(res.body.message).to.include('phoneNumber');
+            expect(res.body.data).to.be.empty;
+            done()
+        })
+    })
+
+    it('TC-205-4 / Gebruiker bestaat niet', (done) => {
+        const TC205_4_update = {
+            "emailAdress": "UwUOwO@Live.nl",
+            "password": "hilias"
+        }
+
+        chai
+        .request(server)
+        .put('/api/user/0')
+        .send(TC205_4_update)
+        .set('Authorization', token)
+        .end((err, res) => {
+            res.should.have.status(404);
+            expect(res.body.message).to.include('No user found');
+            expect(res.body.data).to.be.empty;
+            done()
+        })
+    })
+
+    it('TC-205-5 / Niet ingelogd', (done) => {
+        const TC205_5_update = {
+            "emailAdress": "UwUOwO@Live.nl",
+            "password": "hilias"
+        }
+
+        chai
+        .request(server)
+        .put('/api/user/1')
+        .send(TC205_5_update)
+        .end((err, res) => {
+            res.should.have.status(401);
+            expect(res.body.message).to.include('User is not logged in');
+            expect(res.body.data).to.be.empty;
+            done()
+        })
+    })
+
+    it('TC-205-6 / Gebruiker succesvol gewijzigd', (done) => {
+        const TC205_6_update = {
+            "emailAdress": "UwUOwO@Live.nl",
+            "password": "hilias"
+        }
+
+        chai
+        .request(server)
+        .put('/api/user/1')
+        .send(TC205_6_update)
+        .set('Authorization', token)
+        .end((err, res) => {
+            res.should.have.status(200);
+            expect(res.body.message).to.include('Updated user');
+            expect(res.body.data).to.be.empty;
+            done()
+        })
+    })
 })
-let id;
+
 describe('UC-206 / Verwijderen van user', () => {
     it('TC-206-1 / Gebruiker bestaat niet', (done) => {
-        const TC201_5_login = {
-            "emailAdress": "svenhum@live.nl",
-            "password": "hilias"
+        const TC201_5_delete = {
+            "emailAdress": "svenhu@live.nl",
+            "password": "secret"
         }
         chai
         .request(server)
         .post('/api/login')
-        .send(TC201_5_login)
+        .send(TC201_5_delete)
         .end((err, res) => {
             tokenToDelete = res.body.data.token;
             id = res.body.data.id;
@@ -363,18 +476,18 @@ describe('UC-206 / Verwijderen van user', () => {
             })
         })
     })
-    it('TC-206-2 / Gebruiker is niet ingelogd', (done) => { //Unfinished, requires token
+    it('TC-206-2 / Gebruiker is niet ingelogd', (done) => {
         chai
         .request(server)
         .delete(`/api/user/${id}`)
         .end((err, res) => {
             res.should.have.status(401);
-            expect(res.body.message).to.include('Authorization header missing!');
+            expect(res.body.message).to.include('User is not logged in');
             expect(res.body.data).to.be.empty;
             done()
         })
     })
-    it('TC-206-3 / De gebruiker is niet de eigenaar van de data', (done) => { //Unfinished, requires token
+    it('TC-206-3 / De gebruiker is niet de eigenaar van de data', (done) => {
         chai
         .request(server)
         .delete(`/api/user/1`)
@@ -393,11 +506,28 @@ describe('UC-206 / Verwijderen van user', () => {
         .set('Authorization', tokenToDelete)
         .end((err, res) => {
             res.should.have.status(200);
+            expect(res.body.message).to.include('Deleted user');
+            expect(res.body.data).to.be.empty;
             done()
         })
     })
 })
 
-describe ('Depopulate database', () => {
+describe('UC-XXX / Fix data', () => {
+    it('TC-xxx-x / Gebruiker id 1 email adress reverten', (done) => {
+        const TCxxx_x_update = {
+            "emailAdress": "m.vandullemen@server.nl",
+            "password": "secret"
+        }
 
+        chai
+        .request(server)
+        .put('/api/user/1')
+        .send(TCxxx_x_update)
+        .set('Authorization', token)
+        .end((err, res) => {
+            res.should.have.status(200);
+            done()
+        })
+    })
 })

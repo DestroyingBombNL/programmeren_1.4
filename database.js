@@ -197,27 +197,55 @@ module.exports = {
         })
     },
 
-    updateUser(userId, columnsQuery, callback) { //UC-205
+    updateUser(userIdToUpdate, userId, columnsQuery, callback) { //UC-205
         pool.getConnection(function(err, conn) {
             if (err) {
                 console.log('Errors:', err);
-                callback(err, null);
+                callback(err);
                 return;
             }
             if (conn) {
-                let query = `UPDATE user SET `;
-                query += columnsQuery
-                query += ` WHERE id = ?`
-                conn.query(query, [userId], function(err, results) {
+                const query = `SELECT * FROM user WHERE id = ?`;
+                conn.query(query, [userIdToUpdate], function(err, results) {
                     if (err) {
                         console.log(err.sqlMessage, ' ', err.errno, ' ', err.code, ' ');
-                        callback(err, null);
+                        callback(err);
                         return;
                     }
-                    callback(null, results);
-                });
-                pool.releaseConnection(conn);
+                    if (results.length === 0) {
+                        let err = {
+                            status: 404,
+                            message: 'No user found',
+                            data: {}
+                        };
+                        callback(err);
+                        return;
+                    } else {
+                        if (userIdToUpdate === userId) {
+                            let query = `UPDATE user SET `;
+                            query += columnsQuery
+                            query += ` WHERE id = ?`
+                            conn.query(query, [userIdToUpdate], function(err) {
+                                if (err) {
+                                    console.log(err.sqlMessage, ' ', err.errno, ' ', err.code, ' ');
+                                    callback(err);
+                                    return;
+                                }
+                                callback(null);
+                            });
+                        } else {
+                            let err = {
+                                status: 403,
+                                message: 'User is not authorized to modify this account',
+                                data: {}
+                            };
+                            callback(err);
+                            return;
+                        }
+                    }
+                })
             }
+            pool.releaseConnection(conn);
         })
     },
 
@@ -287,7 +315,7 @@ module.exports = {
                         callback(err, null);
                         return;
                     }
-                    const queryForId = `SELECT id FROM meal WHERE cookId = \'${newMeal.cookId}\'`
+                    const queryForId = `SELECT id FROM meal WHERE cookId = \'${newMeal.cookId}\' ORDER BY id DESC LIMIT 1`
                     conn.query(queryForId, function(err, results) {
                         if (err) {
                             console.log(err.sqlMessage, ' ', err.errno, ' ', err.code, ' ');
@@ -303,7 +331,7 @@ module.exports = {
         })
     },
 
-    updateMeal(mealId, columnsQuery, callback) { //UC-302
+    updateMeal(mealId, cookId, columnsQuery, callback) { //UC-302
         pool.getConnection(function(err, conn) {
             if (err) {
                 console.log('Errors:', err);
@@ -311,25 +339,53 @@ module.exports = {
                 return;
             }
             if (conn) {
-                let query = `UPDATE meal SET `;
-                query += columnsQuery
-                query += ` WHERE id = ?`
-                conn.query(query, [mealId], function(err) {
+                const query = `SELECT * FROM meal WHERE id = ?`;
+                conn.query(query, [mealId], function(err, results) {
                     if (err) {
                         console.log(err.sqlMessage, ' ', err.errno, ' ', err.code, ' ');
                         callback(err, null);
                         return;
                     }
-                    const queryForId = `SELECT * FROM meal WHERE id = ${mealId}`
-                    conn.query(queryForId, function(err, results) {
-                        if (err) {
-                            console.log(err.sqlMessage, ' ', err.errno, ' ', err.code, ' ');
-                            callback(err, null);
+                    if (results.length === 0) {
+                        let err = {
+                            status: 404,
+                            message: 'No meal found',
+                            data: {}
+                        };
+                        callback(err);
+                        return;
+                    } else {
+                        if (mealId === cookId) {
+                            let query = `UPDATE meal SET `;
+                            query += columnsQuery
+                            query += ` WHERE id = ?`
+                            conn.query(query, [mealId], function(err) {
+                                if (err) {
+                                    console.log(err.sqlMessage, ' ', err.errno, ' ', err.code, ' ');
+                                    callback(err, null);
+                                    return;
+                                }
+                                const queryForId = `SELECT * FROM meal WHERE id = ${mealId}`
+                                conn.query(queryForId, function(err, results) {
+                                    if (err) {
+                                        console.log(err.sqlMessage, ' ', err.errno, ' ', err.code, ' ');
+                                        callback(err, null);
+                                        return;
+                                    }
+                                    callback(null, results);
+                                })
+                            });
+                        } else {
+                            let err = {
+                                status: 403,
+                                message: 'User is not authorized to modify this meal',
+                                data: {}
+                            };
+                            callback(err);
                             return;
                         }
-                        callback(null, results);
-                    })
-                });
+                    }
+                })
                 pool.releaseConnection(conn);
             }
         })
@@ -366,16 +422,26 @@ module.exports = {
             }
             if (conn) {
                 const query = `SELECT * FROM meal WHERE id = ?`;
-                conn.query(query, [mealId], function(results) {
+                conn.query(query, [mealId], function(error, results) {
                     if (results.length < 1) {
                         let err = {
                             status: 404,
-                            message: 'No meals found',
+                            message: 'No meal found',
                             data: {}
                         }
                         callback(err, null);
                         return;
                     }
+                    results.forEach(function(result) {
+                        for (const prop in result) {
+                          if (prop !== 'price') { // Exclude 'price' property from conversion
+                            const value = result[prop];
+                            if (value === 0 || value === 1) {
+                              result[prop] = Boolean(value);
+                            }
+                          }
+                        }
+                      });
                     callback(null, results);
                 });
                 pool.releaseConnection(conn);
@@ -383,7 +449,7 @@ module.exports = {
         })
     },
 
-    deleteMeal(mealId, callback) { //UC-305
+    deleteMeal(mealIdToDelete, userId, callback) { //UC-305
         pool.getConnection(function(err, conn) {
             if (err) {
                 console.log('Errors:', err);
@@ -391,23 +457,47 @@ module.exports = {
                 return;
             }
             if (conn) {
-                const query = `DELETE FROM meal WHERE id = ?`;
-                conn.query(query, [mealId], function(err, results) {
-                    if (err) {
-                        console.log(err.sqlMessage, ' ', err.errno, ' ', err.code, ' ');
-                        callback(err, null);
-                        return;
-                    }
-                    if (results.affectedRows === 0) {
+                const query = `SELECT * FROM meal WHERE id = ?`;
+                conn.query(query, [mealIdToDelete], function(error, results) {
+                    if (results.length < 1) {
                         let err = {
                             status: 404,
-                            message: 'No meals found',
+                            message: 'No meal found',
                             data: {}
                         }
                         callback(err, null);
                         return;
+                    } else {
+                        let cookId = results[0].cookId
+                        if (cookId === userId) {
+                            const query = `DELETE FROM meal WHERE id = ?`;
+                            conn.query(query, [mealIdToDelete], function(err, results) {
+                                if (err) {
+                                    console.log(err.sqlMessage, ' ', err.errno, ' ', err.code, ' ');
+                                    callback(err, null);
+                                    return;
+                                }
+                                if (results.affectedRows === 0) {
+                                    let err = {
+                                        status: 404,
+                                        message: 'No meals found',
+                                        data: {}
+                                    }
+                                    callback(err, null);
+                                    return;
+                                }
+                                callback(null, results);
+                            });
+                        } else {
+                            let err = {
+                                status: 403,
+                                message: 'User is not authorized to delete this meal',
+                                data: {}
+                            };
+                            callback(err);
+                            return;
+                        }
                     }
-                    callback(null, results);
                 });
                 pool.releaseConnection(conn);
             }

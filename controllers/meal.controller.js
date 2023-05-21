@@ -35,13 +35,13 @@ const updateMealSchema = Joi.object({
     isVegan: Joi.boolean().optional(),
     isToTakeHome: Joi.boolean().optional(),
     dateTime: Joi.date().optional(),
-    maxAmountOfParticipants: Joi.number().integer().optional(),
-    price: Joi.number().precision(2).optional(),
+    maxAmountOfParticipants: Joi.number().integer().required(),
+    price: Joi.number().precision(2).required(),
     imageUrl: Joi.string().optional(),
     cookId: Joi.number().allow(null).optional(),
     createDate: Joi.date().iso().optional(),
     updateDate: Joi.date().iso().optional(),
-    name: Joi.string().optional().max(200),
+    name: Joi.string().required().max(200),
     description: Joi.string().optional().max(400),
     allergenes: Joi.array().items(Joi.string().valid('gluten', 'lactose', 'noten')).default([]).optional(),
   });
@@ -175,21 +175,31 @@ module.exports = {
             
             if (query !== '') {
                 query = query.substring(0, query.length - 2);
-                database.updateMeal(mealId, query, function(err, results) {
+                authenticationController.validateToken(req, res, next, function(err, cookId) {
                     if (err) {
                         return next({
-                            status: 400,
-                            message: err.sqlMessage || err.message,
-                            data: {}
+                            status: err.status,
+                            message: err.message, 
+                            data: err.data
+                        });
+                    } else {
+                        database.updateMeal(mealId, cookId, query, function(err, results) {
+                            if (err) {
+                                return next({
+                                    status: err.status || 400,
+                                    message: err.sqlMessage || err.message,
+                                    data: err.data || {}
+                                });
+                            }
+                            res.status(200).json({
+                                status: 200,
+                                message: message,
+                                data: results
+                            });
+                            logger.info('Status Code 200 - ' + message);
                         });
                     }
-                    res.status(200).json({
-                        status: 200,
-                        message: message,
-                        data: results
-                    });
-                    logger.info('Status Code 200 - ' + message);
-                });
+                })
             } else {
                 throw new Error('Nothing needs to be updated!');
             }
@@ -248,25 +258,35 @@ module.exports = {
     deleteMeal(req, res, next) { //UC-305
         logger.http('DELETE: /api/meal/:mealId');
         const mealId = req.params.mealId;
-        let message = `Meal with id: ${mealId} deleted`;
+        let message = `Deleted meal with id: ${mealId}`;
         try {
             parsedMealId = parseInt(mealId);
-            database.deleteMeal(parsedMealId, function(err) {
+            authenticationController.validateToken(req, res, next, function(err, cookId) {
                 if (err) {
                     return next({
                         status: err.status,
-                        message: err.sqlMessage || err.message,
+                        message: err.message, 
                         data: err.data
                     });
                 } else {
-                    res.status(200).json({
-                        status: 200,
-                        message: message,
-                        data: {}
+                    database.deleteMeal(parsedMealId, cookId, function(err) {
+                        if (err) {
+                            return next({
+                                status: err.status,
+                                message: err.sqlMessage || err.message,
+                                data: err.data
+                            });
+                        } else {
+                            res.status(200).json({
+                                status: 200,
+                                message: message,
+                                data: {}
+                            });
+                            logger.info('Status Code 200 - ' + message);
+                        }
                     });
-                    logger.info('Status Code 200 - ' + message);
                 }
-            });
+            })
         } catch (error) {
             return next({
                 status: 400,
