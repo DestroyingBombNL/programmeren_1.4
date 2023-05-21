@@ -45,9 +45,13 @@ To install and run the ShareAMeal API locally, follow these steps:
    ```shell
    $ npm install
 
+4. Install XAMPP Control Panel and enable the local database, proceed to start the server
 ## Usage
 
 In order to start the app locally you need to run npm start in your terminal, this is of course only possible if all extentions have been installed in the previous step. For testing use npm test.
+
+http://localhost:3000/
+This is the root URL of your application which can be accessed through your browser. It's completely local and inaccessable through the internet. If you use Postman, which I heavily recommend. You can proceed to add different types of requests like POST, GET, PUT, DELETE and routes like /api/user or /api/meal to access the database. Some routes request headers with authentication which can be accessed through /api/login and adding your emailAdress and password in the body and others don't need that level of authentication.  
 
 ## Contributing
 
